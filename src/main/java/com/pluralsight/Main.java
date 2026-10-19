@@ -14,18 +14,18 @@ public class Main {
 
             switch (selection) {
                 case 1:
-                    System.out.println();
                     //System.out.println("mortgageCalculator: We Promise to not Scam You Out of Your Money!");
                     MortgageCalculator.run(scanner);
                     break;
                 case 2:
-                    System.out.println("You have selected the Loan Calculator\nStill WIP...");
+                    //System.out.println("You have selected the Loan Calculator\nStill WIP...");
+                    CDFutureValueCalculator.run(scanner);
                     break;
                 case 3:
                     System.out.println("You have selected the Investment Calculator\nStill WIP...");
                     break;
                 case 9:
-                    System.out.println("Exiting the program. Thank you for using our services!");
+                    System.out.print("Exiting the program. Thank you for using our services!");
                     break;
                 default:
                     System.out.println("Invalid selection. Please choose a valid option (1, 2, 3, 9).");
