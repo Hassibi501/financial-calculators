@@ -26,7 +26,7 @@ public class Utilities {
 
         System.out.println("Please select a calculator from the following options:");
         System.out.println("1. Mortgage Calculator");
-        System.out.println("2. Loan Calculator");
+        System.out.println("2. CD Future Value Calculator");
         System.out.println("3. Investment Calculator");
         System.out.println("9. Exit the program");
         System.out.println("Enter the number corresponding to your choice (1, 2, 3, 9):");
