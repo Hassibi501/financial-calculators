@@ -8,26 +8,36 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("===========================================================================================");
-        System.out.println("Welcome to the You Will Get Finically Scammed Corporation!");
-        System.out.println("===========================================================================================");
-        System.out.println("Mortgage Calculator: We Promise to not Scam You Out of Your Money!");
+        while (true) {
+            displayMenu();
+            int selection = Integer.parseInt(scanner.nextLine());
 
-        double principal = getValidInput(scanner, "Enter the principal amount (loan amount):");
-        System.out.println();
+            switch (selection) {
+                case 1:
+                    System.out.println();
+                    //System.out.println("mortgageCalculator: We Promise to not Scam You Out of Your Money!");
+                    mortgageCalculator(scanner);
+                    break;
+                case 2:
+                    System.out.println("You have selected the Loan Calculator\nStill WIP...");
+                    break;
+                case 3:
+                    System.out.println("You have selected the Investment Calculator\nStill WIP...");
+                    break;
+                case 9:
+                    System.out.println("Exiting the program. Thank you for using our services!");
+                    break;
+                default:
+                    System.out.println("Invalid selection. Please choose a valid option (1, 2, 3, 9).");
+            }// switch
 
-        double annualInterestRate = getValidInput(scanner, "Enter the annual interest rate:");
-        System.out.println();
-
-        int loanTermYears = (int) getValidInput(scanner, "Enter the loan term in year:");
-        System.out.println();
-
-        System.out.printf("""
-                Monthly Payment: $%.2f
-                Total Interest Paid: $%.2f
-                """, calculateMonthlyPayment(principal, annualInterestRate, loanTermYears), totalInterestPaid(principal, annualInterestRate, loanTermYears));
+            if (selection == 9) {
+                break; // Exit the loop and terminate the program
+            }
+        }// while
 
         scanner.close();
+
     }
 
     public static double getValidInput(Scanner scanner, String promptMessage) {
@@ -63,5 +73,39 @@ public class Main {
         monthlyPayment = calculateMonthlyPayment(principal, monthlyPayment, loanTermYears);
         double numberOfMonthlyPayments = loanTermYears * 12;
         return (monthlyPayment * numberOfMonthlyPayments) - principal;
+    }
+
+    public static void mortgageCalculator(Scanner scanner) {
+
+        System.out.println("Mortgage Calculator: We Promise to not Scam You Out of Your Money!");
+
+        double principal = getValidInput(scanner, "Enter the principal amount (loan amount):");
+
+        double annualInterestRate = getValidInput(scanner, "Enter the annual interest rate:");
+
+        int loanTermYears = (int) getValidInput(scanner, "Enter the loan term in year:");
+        System.out.println();
+
+        System.out.printf("""
+                Monthly Payment: $%.2f
+                Total Interest Paid: $%.2f
+                """, calculateMonthlyPayment(principal, annualInterestRate, loanTermYears), totalInterestPaid(principal, annualInterestRate, loanTermYears));
+
+        System.out.println("\nExiting the Mortgage Calculator. Returning to the main menu...");
+    }
+
+    public static void displayMenu() {
+        System.out.println("===========================================================================================");
+        System.out.println("Welcome to the You Will Get Finically Scammed Corporation!");
+        System.out.println("===========================================================================================");
+
+        System.out.println();
+
+        System.out.println("Please select a calculator from the following options:");
+        System.out.println("1. Mortgage Calculator");
+        System.out.println("2. Loan Calculator");
+        System.out.println("3. Investment Calculator");
+        System.out.println("9. Exit the program");
+        System.out.println("Enter the number corresponding to your choice (1, 2, 3, 9):");
     }
 }
